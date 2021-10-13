@@ -6,7 +6,7 @@
 					<div class="footer-logo-box clearfix">
 						<div class="footer-logo">
 							<nuxt-link to="/">
-								<img src="~/assets/images/index/logo2.png">
+								<!-- <img src="~/assets/images/index/logo2.jpeg"> -->
 							</nuxt-link>
 						</div>
 						<!-- <div class="footer-phone">
@@ -21,31 +21,41 @@
 							<ul class="footer-nav-parent">
 								<li class="footer-nav-list">
 									<nuxt-link to="/">首页</nuxt-link>
+									<ul class="footer-nav-child footer-nav-childNews">
+										<li><a target="_blank" href="https://www.baidu.com/">立即选购</a></li>
+										<li><a target="_blank" href="https://www.baidu.com/">相关产品</a></li>
+										<li><a target="_blank" href="https://www.baidu.com/">酷动门店</a></li>
+										<li><a target="_blank" href="https://www.baidu.com/">主题活动</a></li>
+										<li><a target="_blank" href="https://www.baidu.com/">附近门店搜索</a></li>
+									</ul>
 								</li>
 								<li class="footer-nav-list">
-									<nuxt-link target="_blank" to="/">商城</nuxt-link>
-									<!-- <ul class="footer-nav-child footer-nav-childNews">
-										<li v-for="(item,index) in productList" :key="index"><a target="_blank" :href="item.mallLink">{{item.name}}</a></li>
-									</ul> -->
+									<nuxt-link target="_blank" to="/">产品与优惠</nuxt-link>
+									<ul class="footer-nav-child footer-nav-childNews">
+										<li><a target="_blank" href="https://www.baidu.com/">iphone</a></li>
+										<li><a target="_blank" href="https://www.baidu.com/">ipad</a></li>
+										<li><a target="_blank" href="https://www.baidu.com/">mac</a></li>
+										<li><a target="_blank" href="https://www.baidu.com/">watch</a></li>
+										<li><a target="_blank" href="https://www.baidu.com/">airpods</a></li>
+									</ul>
 								</li>
 								<li class="footer-nav-list">
-									<nuxt-link target="_blank" to="/brand">APP</nuxt-link>
-									<ul class="footer-nav-child footer-nav-childProd">
-										<li>
-											<nuxt-link target="_blank" to="/brand">APP</nuxt-link>
-										</li>
-										<!-- <li v-for="(item,index) in headProdNav" :key="index" v-if="index<4">
-											<nuxt-link target="_blank" :to="{name: 'prod-typeId',params: {typeId: item.proCategoryId}}">{{item.proCategoryName}}</nuxt-link>
-										</li> -->
+									<nuxt-link target="_blank" to="/brand">服务与支持</nuxt-link>
+									<ul class="footer-nav-child footer-nav-childNews">
+										<li><a target="_blank" href="https://www.baidu.com/">产品支持</a></li>
+										<li><a target="_blank" href="https://www.baidu.com/">维修支持</a></li>
+										<li><a target="_blank" href="https://www.baidu.com/">增值服务</a></li>
+										<li><a target="_blank" href="https://www.baidu.com/">更多支持</a></li>
 									</ul>
 								</li>
 								<li class="footer-nav-list">
 									<nuxt-link to="/experice">关于我们</nuxt-link>
-									<ul class="footer-nav-child">
-										<li class="footer-nav-child-list"><nuxt-link to="/experice">联系我们</nuxt-link></li>
-										<!-- <li class="footer-nav-child-list"><nuxt-link to="/service/aftersales">售后服务</nuxt-link></li>
-										<li class="footer-nav-child-list"><nuxt-link to="/service/contact">联系我们</nuxt-link></li>
-										<li class="footer-nav-child-list"><nuxt-link to="/service/questions">常见问题</nuxt-link></li> -->
+									<ul class="footer-nav-child footer-nav-childNews">
+										<li><a target="_blank" href="https://www.baidu.com/">关于酷动</a></li>
+										<li><a target="_blank" href="https://www.baidu.com/">发展历史</a></li>
+										<li><a target="_blank" href="https://www.baidu.com/">联系酷动</a></li>
+										<li><a target="_blank" href="https://www.baidu.com/">商务合作</a></li>
+										<li><a target="_blank" href="https://www.baidu.com/">加入我们</a></li>
 									</ul>
 								</li>
 								<!-- <li class="footer-nav-list footer_links" v-show="$route.params.tag === undefined && $route.fullPath === '/'">
@@ -85,7 +95,7 @@
 	div#index-footer {
 	    width:  100%;
 	    height:  auto;
-	    background: #000;
+	    background: #333333;
 	}
 
 	.index-footer-box {
@@ -107,11 +117,11 @@
 
 	.footer-logo {
 	    float:  left;
-	    margin-top: 28px;
+	    /* margin-top: 28px; */
 	}
 
 	.footer-logo img{
-		height: 37.5px;
+		height: 9rem;
 	}
 
 	.footer-phone {
@@ -134,7 +144,7 @@
 	    /* width:  100%; */
 	    height:  auto;
 	    padding-bottom: 12px;
-	    background: #000;
+	    background: #333;
 	}
 
 	.footer-nav {

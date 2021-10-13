@@ -5,10 +5,10 @@ import axios from 'axios'
 Vue.use(Vuex)
 
 const state = {
-	aiuAPI:'http://manager-api.aiyoukit.com',
-	aiuSRC:'http://manager-file.aiyoukit.com',
-	// aiuAPI:'http://47.106.86.150:8082',
-	// aiuSRC:'http://47.106.86.150:8083',
+	// aiuAPI:'http://manager-api.aiyoukit.com',
+	// aiuSRC:'http://manager-file.aiyoukit.com',
+	aiuAPI:'http://47.106.86.150:8092',
+	aiuSRC:'http://47.106.86.150:8083',
 	headProdNav: {},
 	headNewsNav: {},
 	headJobNav: {},
@@ -20,9 +20,9 @@ const mutations = {
 		setProductList(state,data){
 			state.productList = data
 		},
-		// setHeadJobNav(state,data){
-		// 	state.headJobNav = data
-		// },
+		setShopList(state,data){
+			state.shopList = data
+		},
 		// setIndexLinksData(state,data){
 		// 	state.indexLinksData = data
 		// },
@@ -42,6 +42,14 @@ const actions = {
         		sortName:"sortForHome"
 			})
 			commit('setProductList',productList.data.data.list);
+
+			let shopList = await axios.post(`${state.aiuAPI}/rest/api/shop/v1/query/list`,{
+				asc:true,
+        		sortName:"sortForHome"
+			})
+			commit('setShopList',shopList.data.data.list);
+
+
 	}
 };
 

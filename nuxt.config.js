@@ -27,7 +27,13 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
-      {src: 'http://api.map.baidu.com/api?v=2.0&ak=MDdqxkqhQzfdBzfu2tfGiidGbHgTfGrB'}
+      {src: 'http://api.map.baidu.com/api?v=2.0&ak=MDdqxkqhQzfdBzfu2tfGiidGbHgTfGrB'},
+      // {src: 'https://cache.amap.com/lbs/static/addToolbar.js'},
+      {
+        type: 'text/javascript',
+        src:
+          'https://webapi.amap.com/maps?v=1.4.15&key=915cb730fc97606e9f375b013229c45f&plugin=AMap.MouseTool,AMap.PolyEditor,AMap.LabelMarker,AMap.Autocomplete,AMap.ToolBar,AMap.PlaceSearch,AMap.Heatmap,AMap.Geocoder'
+      },
     ]
   },
   css:['~assets/css/reset.css','video.js/dist/video-js.css'],
@@ -80,7 +86,8 @@ module.exports = {
       src: "@/plugins/vue-awesome-swiper",
       ssr: false
     },
-    { src: '@/plugins/vue-video.js', ssr: false }
+    { src: '@/plugins/vue-video.js', ssr: false },
+    { src: '@/plugins/aMap.js', ssr: false }
   ]
  
 }

@@ -2,6 +2,21 @@
   <section class="container">
       <!-- banner -->
       <VBanner :banner="banner"></VBanner>
+
+      <!-- 门店信息 -->
+      <div class="shop">
+        <div class="shop-title">门店信息</div>
+        <div class="shop-list">
+          <div :id="'shop'+index" v-for="(item,index) in shopList" :key="index">
+            <img v-if="item.picture" class="shop-img" :src="$store.state.aiuSRC + item.picture.filePath" alt="">
+            <div class="shop-main">
+              <div class="shop-name">{{item.showName}}</div>
+              <div class="shop-address">{{item.address}}</div>
+              <div class="shop-time">营业时间：9:00--22:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- 产品展示 -->
       <div :id="'product'+index" v-for="(item,index) in productList" :key="index">
         <div class="product type1" v-if="item.renderType===1">
@@ -91,14 +106,21 @@
         </div>
         
       </div>
-      <div id="videoPop" v-if="videoModal">
+      <!-- <div id="videoPop" v-if="videoModal">
         <div class="box">
           <Video @closeModal="closeModal" :videoSrc="videoUrl"/>
         </div>
         
+      </div> -->
+      <div>调用API(先默认深圳)</div>
+      <div class="map">
+        <div id="container"></div>
+        <div id="panel"></div>
       </div>
-      <!-- 首页底部 -->
-      <BBanner :appList="appList"/>
+      <div >
+        <div style="margin-top:50px;">原生地图</div>
+        <iframe id="container-map" src="https://www.amap.com/search?query=coodoo&city=440300" frameborder="0"></iframe>
+      </div>
   </section>
 </template>
 <script>
@@ -113,7 +135,7 @@
   import Video from '~/components/video'
   import prodListShow from '~/components/common/prodListShow'
   import indexNewsListShow from '~/components/common/indexNewsListShow'
-  
+  import MapLoader from "@/plugins/aMap.js";
   export default {
     data(){
       return {
@@ -138,7 +160,7 @@
     },
     head () {
       return {
-        title:'aiyou',
+        title:'coodoo',
         meta: [
           {name:'keywords',hid: 'keywords',content:`云麦,YUNMAI,好轻,云麦筋膜枪,云麦智能手表,云麦智能跳绳,云麦体脂秤,云麦好轻,云麦好轻Pro,云麦好轻Color2,云麦好轻mini2,云麦腕力球,云麦弹力圈,云麦瑜伽垫,体脂秤,筋膜枪,瑜伽,腕力球,体脂称`},
           {name:'description',hid:'description',content:`云麦科技旗下所有产品，包括云麦筋膜枪系列YUNMAI按摩筋膜枪PB、YUNMAI按摩筋膜枪SC，云麦体脂秤系列云麦好轻2、云麦好轻Pro、云麦好轻Color2、云麦好轻mini2，智能穿戴系列YUNMAI智能训练手表、YUNMAI智能跳绳，瑜伽系列瑜伽垫、瑜伽球、瑜伽砖、瑜伽柱、泡沫轴、瑜伽袜，运动服饰系列运动内衣、运动紧身裤等，运动装备系列运动跳绳、运动臂包、运动腰包、运动护膝、运动护肘、运动护腕、健力环、弹力带、阻力圈、握力圈等，同时提供云麦客户服务及售后支持`}
@@ -150,20 +172,15 @@
       let banner = await axios.post(`${store.state.aiuAPI}/rest/api/display/v1/find-by-keys`,
         ['main_carouselFigure']
       );
-      // let productList = await axios.post(`${store.state.aiuAPI}/rest/api/product/v1/query/list`,{
-      //   asc:true,
-      //   sortName:"sortForHome",
-      // })
       let appList = await axios.get(`${store.state.aiuAPI}/rest/api/app/v1/list/all`)
       return {
         banner:banner.data.data.main_carouselFigure.pictures,
-        // productList:productList.data.data.list,
         appList:appList.data.data
         // backgroundList:background.data.data.list
       } 
     },
     computed: {
-			...mapState(['productList'])
+			...mapState(['productList','shopList'])
 		},
     methods: {
       shopLink(item){
@@ -176,19 +193,103 @@
       },
       closeModal(){
         this.videoModal = false
+      },
+      createMap () {
+        var map = new window.AMap.Map('container', {
+          resizeEnable: true, 
+        });
+
+        AMap.service(["AMap.PlaceSearch"], function() {
+        //构造地点查询类
+        var placeSearch = new AMap.PlaceSearch({ 
+            pageSize: 5, // 单页显示结果条数
+            pageIndex: 1, // 页码
+            city: "440300", // 兴趣点城市
+            citylimit: false,  //是否强制限制在设置的城市内搜索
+            map: map, // 展现结果的地图实例
+            panel: "panel", // 结果列表将在此容器中进行展示。
+            autoFitView: true // 是否自动调整地图视野使绘制的 Marker点都处于视口的可见范围
+        });
+        //关键字查询
+        placeSearch.search('coodoo');
+    });
+        
       }
     },
     mounted(){
-
+      this.createMap()
     }
   }
 </script>
 
 <style scoped>
+.map{
+  width: 80rem;
+  height: 40rem;
+  position: relative;
+}
+#panel {
+            position: absolute;
+            background-color: white;
+            max-height: 90%;
+            overflow-y: auto;
+            top: 10px;
+            right: 10px;
+            width: 280px;
+        }
+#container-map{
+  width: 80rem;
+  height: 40rem;
+}
+#container {
+  width: 80rem;
+  height: 40rem;
+}
   .container {
     width: 100%;
+    padding-top:80px;
     height: auto;
+    background: #f6f6f6;
+  }
+  .shop-title{
+    margin-top:2rem;
+    margin-bottom:1.25rem;
+    font-size: 28px;
+    font-weight: 900;
+    text-align: center;
+  }
+  .shop-list{
+    display: flex;
+    justify-content: space-around;
+  }
+  .shop-img{
+    width: 20rem;
+    height: 20rem;
+    border: none;
+  }
+  .shop-main{
     background: #fff;
+    padding-top:1.25rem;
+    color:#585858;
+  }
+  .shop-name{
+    text-align: center;
+    font-size: 14px;
+    font-weight: 900;
+  }
+  .shop-address{
+    text-align: center;
+    font-size: 12px;
+    
+    margin-top:1rem;
+    margin-bottom:1.25rem;
+  }
+  .shop-time{
+    font-size: 0.625rem;
+    padding-right:0.3125rem;
+    padding-bottom:0.625rem;
+    text-align: right;
+    color: #b6b6b6;
   }
   .product{
     position:relative;

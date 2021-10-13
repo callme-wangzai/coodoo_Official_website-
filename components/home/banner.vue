@@ -91,7 +91,7 @@
 	.swiper-slide>img{
 		width: 100%;
     	/* height: 768px; */
-		height: 45%;
+		height: 30rem;
 	}
 	
 	

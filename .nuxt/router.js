@@ -3,10 +3,10 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const _d9d8874c = () => import('../pages/brand/index.vue' /* webpackChunkName: "pages/brand/index" */).then(m => m.default || m)
-const _7a80df24 = () => import('../pages/experice/index.vue' /* webpackChunkName: "pages/experice/index" */).then(m => m.default || m)
-const _3cd1fd6c = () => import('../pages/leader/index.vue' /* webpackChunkName: "pages/leader/index" */).then(m => m.default || m)
-const _0c6d3a3c = () => import('../pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
+const _6bc9f4be = () => import('../pages/brand/index.vue' /* webpackChunkName: "pages/brand/index" */).then(m => m.default || m)
+const _33693c7d = () => import('../pages/experice/index.vue' /* webpackChunkName: "pages/experice/index" */).then(m => m.default || m)
+const _329845f6 = () => import('../pages/leader/index.vue' /* webpackChunkName: "pages/leader/index" */).then(m => m.default || m)
+const _3536ed69 = () => import('../pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
 
 
 
@@ -68,22 +68,22 @@ export function createRouter () {
     routes: [
 		{
 			path: "/brand",
-			component: _d9d8874c,
+			component: _6bc9f4be,
 			name: "brand"
 		},
 		{
 			path: "/experice",
-			component: _7a80df24,
+			component: _33693c7d,
 			name: "experice"
 		},
 		{
 			path: "/leader",
-			component: _3cd1fd6c,
+			component: _329845f6,
 			name: "leader"
 		},
 		{
 			path: "/",
-			component: _0c6d3a3c,
+			component: _3536ed69,
 			name: "index"
 		}
     ],

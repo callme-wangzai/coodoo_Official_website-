@@ -32,7 +32,7 @@
     },
     mounted (){
       //监听滚动条，固定头部
-      window.addEventListener('scroll',this.handleScroll);
+      // window.addEventListener('scroll',this.handleScroll);
       //直接将SEO脚本放在页面会被当成文本解析，所以将方法提取出来，放到mounted hook里面执行
       seo();
       //统计脚本
@@ -54,7 +54,7 @@
           this.headFixed = false;
         }
         let percent = scrollTop/304 >= 1 ? 1 : scrollTop/304
-        document.getElementById('index-header').style.backgroundColor = `rgba(0,0,0,${percent})`
+        document.getElementById('index-header').style.backgroundColor = `rgba(246,246,246,${percent})`
         let list = document.getElementsByClassName('titleLink')
         // if(scrollTop>152){
         //   for(let item of list){
@@ -79,6 +79,6 @@
 </style>
 <style>
 body{
-  background:#000;
+  background:#f6f6f6;
 }
 </style>

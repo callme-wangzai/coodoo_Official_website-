@@ -7,17 +7,23 @@
 				</nuxt-link>
 				<div class="i-h-nav">
 					<ul class="h-nav-list">
-						<li @mouseover="selectStyle" @mouseout="outStyle">
+						<!-- @mouseover="selectStyle" @mouseout="outStyle" -->
+						<li 
+						
+						>
 							<nuxt-link class="titleLink" to="/">首页</nuxt-link>
 						</li>
 						<li>
-							<nuxt-link class="titleLink" to="/brand">产品和服务</nuxt-link>
+							<nuxt-link class="titleLink" to="/brand">购买渠道</nuxt-link>
 						</li>
 						<li>
-							<nuxt-link class="titleLink" to="/leader">智能硬件</nuxt-link>
+							<nuxt-link class="titleLink" to="/leader">产品与优惠</nuxt-link>
 						</li>
 						<li>
-							<nuxt-link class="titleLink" to="/experice">关于爱柚</nuxt-link>
+							<nuxt-link class="titleLink" to="/experice">服务与支持</nuxt-link>
+						</li>
+						<li>
+							<nuxt-link class="titleLink" to="/experice">关于我们</nuxt-link>
 						</li>
 					</ul>		
 				</div>
@@ -95,7 +101,7 @@
 	#index-header {
 	    width:  100%;
 	    /* height: 158px; */
-	    /* background:  #fff; */
+	    background: #f6f6f6;
 	    z-index: 666;
 	}
 
@@ -175,7 +181,7 @@
 	    padding: 0 23px;
 	}
 	.h-nav-list .titleLink:hover{
-		color:orange;
+		/* color:rgb(245, 237, 223); */
 	}
 
 	.h-nav-list>li>a {
@@ -183,7 +189,7 @@
 	    width:  100%;
 	    height:  100%;
 	    /* padding-bottom:  6px; */
-	    color: #fff;
+	    color: #aaa;
 	    -webkit-box-sizing: border-box;
 	    -moz-box-sizing: border-box;
 	    box-sizing: border-box;
@@ -202,7 +208,7 @@
 	}
 
 	.h-nav-list>li .nuxt-link-exact-active{
-		color: orange!important;
+		color: #000!important;
 	}
 	.h-nav-list-child li a.nuxt-link-exact-active{
 		border: none;
