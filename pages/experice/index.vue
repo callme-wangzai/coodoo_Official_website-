@@ -14,10 +14,10 @@
 		},
 		head () {
 		  return {
-		    title:'关于爱柚',
+		    title:'服务与支持',
 		    meta: [
-		      {name:'keywords',hid: 'keywords',content:`关于爱柚`},
-		      {name:'description',hid:'description',content:`了解爱柚`}
+		      {name:'keywords',hid: 'keywords',content:`服务与支持`},
+		      {name:'description',hid:'description',content:`服务与支持`}
 		    ]
 		  }
 		},

@@ -2,7 +2,7 @@
 	<div id="bottom-banner">
         <div class="banner">
             <div class="banner-main">
-            <img class="white_logo" src="~/assets/images/index/logo_white.jpg" alt="">
+            <!-- <img class="white_logo" src="~/assets/images/index/logo_white.jpg" alt=""> -->
             <div class="name">APP</div>
             <div class="title">运动使我快乐</div>
             <div class="code">
@@ -18,7 +18,7 @@
                 </div>
             </div>
             </div>
-            <img src="~/assets/images/index/banner.png" alt="">
+            <!-- <img src="~/assets/images/index/banner.png" alt=""> -->
         </div>
 	</div>
 </template>

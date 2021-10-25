@@ -3,94 +3,39 @@
 		<div id="index-footer">
 			<div class="index-footer-box">
 				<div class="footer-top">
-					<div class="footer-logo-box clearfix">
+					<!-- <div class="footer-logo-box clearfix">
 						<div class="footer-logo">
 							<nuxt-link to="/">
-								<!-- <img src="~/assets/images/index/logo2.jpeg"> -->
+								<img src="~/assets/images/index/logo2.png">
 							</nuxt-link>
 						</div>
-						<!-- <div class="footer-phone">
-							<img src="~/assets/images/index/footer-phone.png">
-						</div>
-						<div class="footer-pic">
-							<img src="~/assets/images/index/footer-pic.png">
-						</div> -->
+					</div> -->
+				
+				</div>
+				<div class="code">
+					<div class="gongzhonghao">
+						<img src="~/assets/images/index/gongzhonghao.jpeg" alt="">
 					</div>
-					<div class="footer-nav-box">
-						<div class="footer-nav">
-							<ul class="footer-nav-parent">
-								<li class="footer-nav-list">
-									<nuxt-link to="/">首页</nuxt-link>
-									<ul class="footer-nav-child footer-nav-childNews">
-										<li><a target="_blank" href="https://www.baidu.com/">立即选购</a></li>
-										<li><a target="_blank" href="https://www.baidu.com/">相关产品</a></li>
-										<li><a target="_blank" href="https://www.baidu.com/">酷动门店</a></li>
-										<li><a target="_blank" href="https://www.baidu.com/">主题活动</a></li>
-										<li><a target="_blank" href="https://www.baidu.com/">附近门店搜索</a></li>
-									</ul>
-								</li>
-								<li class="footer-nav-list">
-									<nuxt-link target="_blank" to="/">产品与优惠</nuxt-link>
-									<ul class="footer-nav-child footer-nav-childNews">
-										<li><a target="_blank" href="https://www.baidu.com/">iphone</a></li>
-										<li><a target="_blank" href="https://www.baidu.com/">ipad</a></li>
-										<li><a target="_blank" href="https://www.baidu.com/">mac</a></li>
-										<li><a target="_blank" href="https://www.baidu.com/">watch</a></li>
-										<li><a target="_blank" href="https://www.baidu.com/">airpods</a></li>
-									</ul>
-								</li>
-								<li class="footer-nav-list">
-									<nuxt-link target="_blank" to="/brand">服务与支持</nuxt-link>
-									<ul class="footer-nav-child footer-nav-childNews">
-										<li><a target="_blank" href="https://www.baidu.com/">产品支持</a></li>
-										<li><a target="_blank" href="https://www.baidu.com/">维修支持</a></li>
-										<li><a target="_blank" href="https://www.baidu.com/">增值服务</a></li>
-										<li><a target="_blank" href="https://www.baidu.com/">更多支持</a></li>
-									</ul>
-								</li>
-								<li class="footer-nav-list">
-									<nuxt-link to="/experice">关于我们</nuxt-link>
-									<ul class="footer-nav-child footer-nav-childNews">
-										<li><a target="_blank" href="https://www.baidu.com/">关于酷动</a></li>
-										<li><a target="_blank" href="https://www.baidu.com/">发展历史</a></li>
-										<li><a target="_blank" href="https://www.baidu.com/">联系酷动</a></li>
-										<li><a target="_blank" href="https://www.baidu.com/">商务合作</a></li>
-										<li><a target="_blank" href="https://www.baidu.com/">加入我们</a></li>
-									</ul>
-								</li>
-								<!-- <li class="footer-nav-list footer_links" v-show="$route.params.tag === undefined && $route.fullPath === '/'">
-									<a href="javascript:void(0)">友情链接</a>
-									<ul class="footer-nav-child footer_links_ul">
-										<li class="footer-nav-child-list" v-for="(list,index) in indexLinksData" :key="index">
-											<a target="_blank" :href="list.link">{{list.linkName}}</a>
-										</li>
-									</ul>
-								</li> -->
-							</ul>	
-						</div>
-						<!-- <div class="footer-code">
-							<div class="footer-sina-box">
-								<div class="footer-sina-icon"><a target="_blank" rel="nofollow" href="https://weibo.com/visney?is_hot=1"><img src="~/assets/images/index/footer-sina-icon.png"></a></div>
-							</div>
-							<div class="footer-weixin-box">
-								<div class="footer-weixin-icon"><img src="~/assets/images/index/footer-weixin-icon.png"></div>
-								<div class="footer-weixin-code code-pic active"><img src="~/assets/images/index/footer-weixin-code.png"></div>
-							</div>
-							<div class="footer-phone-box">
-								<div class="footer-phone-icon"><img src="~/assets/images/index/footer-phone-icon.png"></div>
-							</div>
-						</div> -->
+					<div class="des">
+						<div class="title">Coodoo官方公众号</div>
+						<div>了解Apple产品及周边配件的绝佳场所</div>
+					</div>
+					<div class="xiaochengxu">
+						<img src="~/assets/images/index/xiaochengxu.png" alt="">
+					</div>
+					<div class="des">
+						<div class="title">Apple授权专营店</div>
+						<div>在你身边的产品与服务</div>
 					</div>
 				</div>
 				<div class="footer-bottom">
-					<p>Copyright © 2021 深圳市爱柚数字智能有限公司</p>
-					<p>粤ICP备2021129996号</p>
+					<p>Copyright © 2011 www.COODOO.com.cn All Rights Reserved.Power by COODOO Digital</p>
+					<p>版权所有 © Coodoo 保留所有权利 备案/许可证编号为: <span class="link" @click="linkToWeb">粤ICP备12064129号-2</span></p>
 				</div>
 			</div>
 		</div>
 	</footer>
 </template>
-
 <style scoped>
 	div#index-footer {
 	    width:  100%;
@@ -121,7 +66,8 @@
 	}
 
 	.footer-logo img{
-		height: 9rem;
+		height: 4rem;
+		margin-top:2rem;
 	}
 
 	.footer-phone {
@@ -266,37 +212,62 @@
 	    margin-right: 24px;
 	    margin-left: 23px;
 	}
-
-	.code-pic {
-	    display: none;
-	    position: absolute;
-	    top: 70px;
-	    right: 0;
-	    overflow:  hidden;
-	    width: 135px;
-	    height: 139px;
+	.code{
+		margin-top:2vw;
+		margin-bottom: 2vw;
+		display: flex;
+		justify-content: center;
+		
 	}
-
-	.code-pic img {
-	    width:  100%;
-	    height: 100%;
+	.gongzhonghao{
+		width:8vw;
+		height: 8vw;
+		border:solid 3px #000;
+		border-radius: 1vw;
+		overflow: hidden;
 	}
-
-	.code-pic.active {
-	    display:  block;
+	.gongzhonghao>img{
+		width:8vw;
+		height: 8vw;
 	}
-
+	.xiaochengxu{
+		width:8vw;
+		height: 8vw;
+		margin-left: 3vw;
+		border:solid 3px #000;
+		border-radius: 1vw;
+		overflow: hidden;
+	}
+	.xiaochengxu>img{
+		width:8vw;
+		height: 8vw;
+	}
+	.des{
+		margin-left: 1vw;
+		/* margin-right: 5vw; */
+		color: #fff;
+		font-size: 12px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.des .title{
+		font-size: 16px;
+		font-weight: bold;
+		font-family: 'pingfang';
+		margin-bottom:5px;
+	}
 	.footer-bottom {
 	    overflow:  hidden;
 	    width: 100%;
-	    height:  28px;
+	    /* height:  28px; */
 	    color:  #999;
 	    font-size: 12px;
 	    text-align:  center;
 	    line-height:  28px;
 	}
 	.footer-bottom p {
-		display: inline-block;
+		/* display: inline-block; */
 		margin-left: 15px;
 	}
 
@@ -311,6 +282,17 @@
 	.footer-bottom p a:hover {
 		color: #f9f9fa;
 	}
+	#index-footer{
+		/* position: absolute;
+		bottom:0;
+		z-index: 999; */
+	}
+	.link{
+		cursor: pointer;
+	}
+	.link:hover{
+		text-decoration:underline!important;
+	}
 </style>
 
 <script>
@@ -319,18 +301,10 @@
 	export default {
 		name: 'VFooter',
 		components: {},
-		
-		computed: {
-			...mapState(['headProdNav','productList','indexLinksData'])
-		},
-		// mounted (){
-		// 	//判断是否为首页，首页则改变友情链接控制字段，只在首页显示
-		// 	let that = this
-		// 	if(that.$route.params.tag === undefined && that.$route.fullPath === '/'){
-		// 		that.$store.commit('setIndexShowLinks', true)
-		// 	}else {
-		// 		that.$store.commit('setIndexShowLinks', false)
-		// 	}
-		// }
+		methods:{
+			linkToWeb(){
+				window.open('https://beian.miit.gov.cn/')
+			}
+		}
 	}
 </script>

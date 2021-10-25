@@ -5,6 +5,8 @@ import '../assets/css/reset.css'
 
 import '../node_modules/video.js/dist/video-js.css'
 
+import '../node_modules/element-ui/lib/theme-chalk/index.css'
+
 
 let layouts = {
 

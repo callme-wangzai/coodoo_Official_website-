@@ -36,7 +36,7 @@ module.exports = {
       },
     ]
   },
-  css:['~assets/css/reset.css','video.js/dist/video-js.css'],
+  css:['~assets/css/reset.css','video.js/dist/video-js.css','element-ui/lib/theme-chalk/index.css'],
   /*
   ** Customize the progress bar color
   */
@@ -57,7 +57,7 @@ module.exports = {
     extractCSS: {
       allChunks: true
     },
-    vender: ['axios'],
+    vender: ['axios','element-ui'],
     /*
     ** Run ESLint on save
     */
@@ -87,7 +87,7 @@ module.exports = {
       ssr: false
     },
     { src: '@/plugins/vue-video.js', ssr: false },
-    { src: '@/plugins/aMap.js', ssr: false }
+    { src: '@/plugins/ElementUI.js', ssr: false }
   ]
  
 }

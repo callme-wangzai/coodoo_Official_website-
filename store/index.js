@@ -23,12 +23,12 @@ const mutations = {
 		setShopList(state,data){
 			state.shopList = data
 		},
-		// setIndexLinksData(state,data){
-		// 	state.indexLinksData = data
-		// },
-		// setIndexShowLinks(state,bool){
-		// 	state.indexShowLinks = bool
-		// }	
+		setShopType(state,data){
+			state.shopType = data
+		},
+		setSubject(state,bool){
+			state.subject = bool
+		}	
 };
 
 const getters = {
@@ -44,10 +44,22 @@ const actions = {
 			commit('setProductList',productList.data.data.list);
 
 			let shopList = await axios.post(`${state.aiuAPI}/rest/api/shop/v1/query/list`,{
-				asc:true,
-        		sortName:"sortForHome"
+				request:{
+					sortIndex:1
+				}
 			})
 			commit('setShopList',shopList.data.data.list);
+
+			let shopType = await axios.post(`${state.aiuAPI}/rest/api/shop-type/v1/query/list-all`,{
+				asc:true,
+        		sortName:"sortIndex"
+			})
+			commit('setShopType',shopType.data.data);
+
+			let subject = await axios.post(`${state.aiuAPI}/rest/api/subject/v1/query/list-all`,{
+				
+			})
+			commit('setSubject',subject.data.data);
 
 
 	}
