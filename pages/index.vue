@@ -12,7 +12,7 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide product-slide" v-for="(item,index) in productList" :key="index">
             <div class="product-title">{{item.name}}</div>
-            <div class="product-desc">{{item.desc}}</div>
+            <div class="product-desc" :title="item.desc">{{item.desc}}</div>
             <div class="learn-more"><a @click="linkTo(item.mallLink)">了解更多 ></a></div>
             <img v-if="item.suspensions&&item.suspensions[0]" :src="$store.state.aiuSRC+item.suspensions[0].filePath">
           </div>
@@ -54,7 +54,7 @@
       <no-ssr>
       <div class="shop-search">
         <div class="search-title">
-          <h3>您身边的Apple专家</h3>
+          <div class="h3-title">您身边的Apple专家</div>
           <div class="shop-description">即刻前往线下门店，酷享更多服务</div>
           <div class="search-input">
             <el-input
@@ -95,13 +95,13 @@
 					// 	clickable: true ,//允许分页点击跳转
 					// },
 					navigation: {
-						nextEl: ".swiper-button-next",
-						prevEl: ".swiper-button-prev"
+						nextEl: ".product-list .swiper-button-next",
+						prevEl: ".product-list .swiper-button-prev"
 					},
           loop : true,
 					slidesPerView : 'auto',
-					spaceBetween : 20,
-          slidesOffsetBefore : 160,
+					spaceBetween : 30,
+          centeredSlides:true
 				},
         num:0,
         clickProdIndex:0,
@@ -143,7 +143,7 @@
         title:'coodoo',
         meta: [
           {name:'keywords',hid: 'keywords',content:`云麦,YUNMAI,好轻,云麦筋膜枪,云麦智能手表,云麦智能跳绳,云麦体脂秤,云麦好轻,云麦好轻Pro,云麦好轻Color2,云麦好轻mini2,云麦腕力球,云麦弹力圈,云麦瑜伽垫,体脂秤,筋膜枪,瑜伽,腕力球,体脂称`},
-          {name:'description',hid:'description',content:`云麦科技旗下所有产品，包括云麦筋膜枪系列YUNMAI按摩筋膜枪PB、YUNMAI按摩筋膜枪SC，云麦体脂秤系列云麦好轻2、云麦好轻Pro、云麦好轻Color2、云麦好轻mini2，智能穿戴系列YUNMAI智能训练手表、YUNMAI智能跳绳，瑜伽系列瑜伽垫、瑜伽球、瑜伽砖、瑜伽柱、泡沫轴、瑜伽袜，运动服饰系列运动内衣、运动紧身裤等，运动装备系列运动跳绳、运动臂包、运动腰包、运动护膝、运动护肘、运动护腕、健力环、弹力带、阻力圈、握力圈等，同时提供云麦客户服务及售后支持`}
+          {name:'description',hid:'description',content:`云麦科技旗下所有产品，包括云麦筋膜枪系列YUNMAI按摩筋膜枪PB、YUNMAI按摩筋膜枪SC，云麦体脂秤系列云麦好轻2、云麦好轻Pro、云麦好轻Color2、云麦好轻mini2，智能穿戴系列YUNMAI智能训练手表、YUNMAI智能跳绳，瑜伽系列瑜伽垫、瑜伽球、瑜伽砖、瑜伽柱、泡沫轴、瑜伽袜，运动服饰系列运动内衣、运动紧身裤等，运动装备系列运动跳绳、运动臂包、运动腰包、运动护膝、运动护肘、运动护腕、健力环、弹力带、阻力圈、握力圈等，同时提供云麦客户服务及售后支持`},
         ]
       }
     },
@@ -210,7 +210,7 @@
   .shop-title{
     margin-top:2vw;
     margin-bottom:2vw;
-    font-size: 45px;
+    /* font-size: 45px; */
     font-family: PingFang SC;
     font-weight: 600;
     color: #333333;
@@ -258,29 +258,26 @@
     margin-top:3.125vw;
   }
   .product-slide{
-    width: 38vw !important;
-    height:38vw;
+    
     background: #f6f6f6;
     display: flex;
     flex-direction:column;
     justify-content: space-between;
   }
-  .product-slide>img{
-    width: 20vw;
-    height: 20vw;
-    /* margin-bottom:2vw; */
-    margin:2vw auto;
-  }
+  
   .product-title{
-    font-size: 18px;
     font-family: PingFang SC;
+    
     font-weight: 600;
     color: #333333;
     text-align: center;
-    margin-top:4.16vw;
-    margin-bottom:1vw
   }
   .product-desc{
+    overflow : hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
     font-size: 16px;
     font-family: PingFang SC;
     font-weight: 400;
@@ -297,7 +294,7 @@
     color: #666666;
     opacity: 0.7;
     text-align: center;
-    margin-top:1vw;
+    /* margin-top:1vw; */
   }
   .learn-more>a{
     cursor: pointer;
@@ -319,10 +316,9 @@
     font-size: 40px;
   }
   .shop-search .shop-description{
-    font-size: 16px;
+    /* font-size: 16px; */
     margin-top: 20px;
     color:#999;
-    
   }
   .shop-search .search-input{
     width:20vw;
@@ -341,7 +337,7 @@
     /* padding-bottom:5vw; */
   }
   .theme-title{
-    font-size: 60px;
+    /* font-size: 60px; */
     font-family: PingFang SC;
     font-weight: 600;
     color: #FFFFFF;
@@ -350,7 +346,7 @@
     padding-top:2vw;
   }
   .theme-description{
-    font-size: 18px;
+    /* font-size: 18px; */
     font-family: PingFang SC;
     font-weight: 400;
     color: #999999;
@@ -384,6 +380,270 @@
     overflow: hidden;
     cursor: pointer;
   }
+  @media screen and (max-width:767px) {
+    .product-slide{
+      width: 100vw !important;
+      height:100vw;
+    }
+    .product-title{
+      margin-top:4.16vw;
+      margin-bottom:1vw;
+      font-size: 1.125rem;
+    }
+    .product-slide>img{
+      width: 16rem;
+      height: 16rem;
+      margin: 0.2rem auto;
+    }
+    .learn-more{
+      margin-top:0.5vw;
+    }
+    .product-desc{
+      width: 70vw!important;
+      font-size: 1rem!important;
+      -webkit-line-clamp: 2!important;
+    }
+    .shop-title{
+      font-size: 22px;
+    }
+    .theme-title{
+      font-size: 24px;
+    }
+    .theme-description{
+      font-size: 12px;
+    }
+    .theme-first{
+      border-radius:20px!important;
+    }
+    .theme-second{
+      border-radius:20px!important;
+    }
+    .theme-third{
+      border-radius:20px!important;
+    }
+    .h3-title{
+      font-weight:900;
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    .shop-search .shop-description{
+      font-size: 12px;
+      margin-top: 5px
+    }
+    .search-title{
+      width: 16rem;
+      height:7rem;
+      margin-left:-8rem;
+      margin-top:-3.5rem;
+    }
+    .shop-search .search-input{
+      width: 10rem;
+      margin: 0.2rem auto
+    }
+	}
+  @media screen and (min-width:768px) and (max-width:999px) {
+    .product-slide{
+      width: 100vw !important;
+      height:100vw;
+    }
+    .product-title{
+      margin-top:4.16vw;
+      margin-bottom:1vw;
+      font-size: 18px;
+    }
+    .product-slide>img{
+      width: 75vw;
+      height: 75vw;
+      margin :1vw auto;
+    }
+    .learn-more{
+      margin-top:0.5vw;
+    }
+    .product-desc{
+      width: 70vw!important;
+      font-size: 1rem!important;
+    }
+    .shop-title{
+      font-size: 28px;
+    }
+    .theme-title{
+      font-size: 30px;
+    }
+    .theme-description{
+      font-size: 14px;
+    }
+    .theme-first{
+      border-radius:30px!important;
+    }
+    .theme-second{
+      border-radius:30px!important;
+    }
+    .theme-third{
+      border-radius:30px!important;
+    }
+    .h3-title{
+      font-weight:900;
+      font-size: 24px;
+    }
+    .shop-search .shop-description{
+      font-size: 12px;
+    }
+    .search-title{
+      width: 320px;
+      height:200px;
+      margin-left:-160px;
+      margin-top:-100px;
+    }
+	}
+	@media screen and (min-width:1000px) and (max-width:1199px) {
+    .product-slide{
+      width: 37vw !important;
+      height:37vw;
+    }
+    .product-title{
+      margin-top:1.16vw;
+      margin-bottom:0vw;
+      font-size: 18px;
+    }
+    .product-slide>img{
+      width: 25vw;
+      height: 25vw;
+      margin: 0.5vw auto;
+    }
+    .learn-more{
+      margin-top:0.5vw;
+    }
+    .product-desc{
+      -webkit-line-clamp: 2!important;
+    }
+    .shop-title{
+      font-size: 28px;
+    }
+    .theme-title{
+      font-size: 36px;
+    }
+    .theme-description{
+      font-size: 16px;
+    }
+    .h3-title{
+      font-weight:900;
+      font-size: 28px;
+    }
+    .shop-search .shop-description{
+      font-size: 14px;
+    }
+    .search-title{
+      width: 320px;
+      height:240px;
+      margin-left:-160px;
+      margin-top:-120px;
+    }
+	}
+	@media screen and (min-width:1200px) and (max-width:1439px) {
+    .product-slide{
+      width: 37vw !important;
+      height:37vw;
+    }
+    .product-title{
+      margin-top:2.16vw;
+      margin-bottom:1vw;
+      font-size: 18px;
+    }
+    .product-slide>img{
+      width: 20vw;
+      height: 20vw;
+      margin: 1vw auto;
+    }
+    .learn-more{
+      margin-top:0.5vw;
+    }
+    .shop-title{
+      font-size: 34px;
+    }
+    .theme-title{
+      font-size: 42px;
+    }
+    .theme-description{
+      font-size: 18px;
+    }
+    .h3-title{
+      font-weight:900;
+      font-size: 32px;
+    }
+    .shop-search .shop-description{
+      font-size: 14px;
+    }
+	}
+	@media screen and (min-width:1440px) and (max-width:1679px) {
+    .product-slide{
+      width: 37vw !important;
+      height:37vw;
+    }
+    .product-title{
+      margin-top:3.16vw;
+      margin-bottom:0;
+      font-size: 18px;
+    }
+    .product-slide>img{
+      width: 20vw;
+      height: 20vw;
+      margin:1.5vw auto;
+    }
+    .learn-more{
+      margin-top:1vw;
+    }
+    .shop-title{
+      font-size: 40px;
+    }
+    .theme-title{
+      font-size: 48px;
+    }
+    .theme-description{
+      font-size: 20px;
+    }
+    .h3-title{
+      font-weight:900;
+      font-size: 36px;
+    }
+    .shop-search .shop-description{
+      font-size: 16px;
+    }
+	}
+	@media screen and (min-width:1680px) {
+    .product-slide{
+      width: 37vw !important;
+      height:37vw;
+    }
+    .product-title{
+      margin-top:4.16vw;
+      margin-bottom:1vw;
+      font-size: 18px;
+    }
+    .product-slide>img{
+      width: 20vw;
+      height: 20vw;
+      margin:2vw auto;
+    }
+    .learn-more{
+      margin-top:1vw;
+    }
+    .shop-title{
+      font-size: 45px;
+    }
+    .theme-title{
+      font-size: 60px;
+    }
+    .theme-description{
+      font-size: 22px;
+    }
+    .h3-title{
+      font-weight:900;
+      font-size: 40px;
+    }
+    .shop-search .shop-description{
+      font-size: 16px;
+    }
+	}
 </style>
 <style>
 .el-form-item{
