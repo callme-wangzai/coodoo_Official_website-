@@ -4,7 +4,7 @@
       <VBanner :banner="banner" :bannerType="'1'" ></VBanner>
 
       <!-- 广告位 -->
-      <img @click="linkTo('https://shop40567215.youzan.com/v2/showcase/homepage?alias=PqERHgH7qr')" style="width:100%;cursor:pointer;" src="http://47.106.86.150:8083/img/picture/8d1739af83cb4715bfd05a3ccaa10306_1634744997231.jpg" alt="">
+      <img @click="linkTo('https://shop40567215.youzan.com/v2/showcase/homepage?alias=PqERHgH7qr')" style="width:100%;cursor:pointer;" src="~/assets/images/index/banner.jpg" alt="">
       
 
       <!-- 产品展示 -->
@@ -14,7 +14,7 @@
             <div class="product-title">{{item.name}}</div>
             <div class="product-desc">{{item.desc}}</div>
             <div class="learn-more"><a @click="linkTo(item.mallLink)">了解更多 ></a></div>
-            <img :src="$store.state.aiuSRC+item.suspensions[0].filePath">
+            <img v-if="item.suspensions&&item.suspensions[0]" :src="$store.state.aiuSRC+item.suspensions[0].filePath">
           </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -37,14 +37,14 @@
         <div class="theme-title">精彩活动</div>
         <div class="theme-description">爱尚酷生活</div>
         <div class="theme-first">
-          <img width="100%" @click="linkToActive(subject[0].sortIndex)" :src="$store.state.aiuSRC+subject[0].pictures[0].filePath" alt="">
+          <img width="100%" @click="linkToActive(subject[0])" :src="$store.state.aiuSRC+subject[0].pictures[0].filePath" alt="">
         </div>
         <div class="theme-others">
           <div class="theme-second">
-            <img height="100%" @click="linkToActive(subject[1].sortIndex)" :src="$store.state.aiuSRC+subject[1].pictures[0].filePath" alt="">
+            <img height="100%" @click="linkToActive(subject[1])" :src="$store.state.aiuSRC+subject[1].pictures[0].filePath" alt="">
           </div>
           <div class="theme-third">
-            <img height="100%" @click="linkToActive(subject[2].sortIndex)" :src="$store.state.aiuSRC+subject[2].pictures[0].filePath" alt="">
+            <img height="100%" @click="linkToActive(subject[2])" :src="$store.state.aiuSRC+subject[2].pictures[0].filePath" alt="">
           </div>
         </div>
       </div>
@@ -181,10 +181,14 @@
         }))
         this.$router.push('/brand')
       },
-      linkToActive(num){
-        this.$router.push({path:'/home/activities',query:{
-					subject:num
-				}})
+      linkToActive(obj){
+        if(obj.subjectDesc&&obj.subjectDesc!==''){
+          window.open(obj.subjectDesc)
+        }else{
+          this.$router.push({path:'/home/activities',query:{
+            subject:obj.sortIndex
+          }})
+        }
       } 
     },
     mounted(){
@@ -204,8 +208,8 @@
     margin-bottom:20px;
   }
   .shop-title{
-    margin-top:75px;
-    margin-bottom:75px;
+    margin-top:2vw;
+    margin-bottom:2vw;
     font-size: 45px;
     font-family: PingFang SC;
     font-weight: 600;

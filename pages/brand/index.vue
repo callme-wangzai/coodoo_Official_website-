@@ -209,7 +209,7 @@
         ['shop']
       );
       return {
-        banner:banner.data.data.shop.pictures,
+        banner:banner.data.data.shop,
         // backgroundList:background.data.data.list
       } 
     },

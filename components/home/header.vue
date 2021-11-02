@@ -79,8 +79,8 @@
 			<div class="second-child">
 				<div class="second-title">产品支持</div>
 				<div class="supplement">技术问题解答</div>
-				<div class="third-child" @click="linkTo('/experice/productSupport')" v-for="(item,index) in productList" :key="index">
-					{{item.name}}
+				<div class="third-child" @click="linkTo(`/experice/productSupport?id=${item.id}`)" v-for="(item,index) in supportList" :key="index">
+					{{item.supportName}}
 				</div>
 			</div>
 			<div class="line"></div>
@@ -132,6 +132,10 @@
 			<div class="second-child">
 				<div class="second-title" @click="linkTo('/about')">加入我们</div>
 			</div>
+			<!-- <div class="line"></div>
+			<div class="second-child">
+				<div class="second-title" @click="linkTo('/about')">隐私政策</div>
+			</div> -->
 		</div>
 	</header>
 </template>
@@ -154,7 +158,7 @@
 			}
 		},
 		computed: {
-			...mapState(['productList','shopType'])
+			...mapState(['supportList','shopType'])
 		},
 		mounted (){
 			

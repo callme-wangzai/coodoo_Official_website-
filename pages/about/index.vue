@@ -9,6 +9,7 @@
 				<div @click="liClick(3)" :class="`li ${current===3?'pointer':''}`"><span>联系酷动</span></div>
 				<div @click="liClick(4)" :class="`li ${current===4?'pointer':''}`"><span>商务合作</span></div>
 				<div @click="liClick(5)" :class="`li ${current===5?'pointer':''}`"><span>加入我们</span></div>
+				<div @click="liClick(2)" :class="`li ${current===2?'pointer':''}`"><span>隐私政策</span></div>
 			</div>
 			<div class="content">
 				<div v-show="current===1">
@@ -16,11 +17,7 @@
 						<img v-if="banner.filePath" :src="$store.state.aiuSRC+banner.filePath">
 					</div>
 				</div>
-				<div v-show="current===2">
-					<div v-for="(banner,index) in about_development" :key="index">
-						<img v-if="banner.filePath" :src="$store.state.aiuSRC+banner.filePath">
-					</div>
-				</div>
+				
 				<div v-show="current===3">
 					<div v-for="(banner,index) in about_contact" :key="index">
 						<img v-if="banner.filePath" :src="$store.state.aiuSRC+banner.filePath">
@@ -34,6 +31,12 @@
 				<div v-show="current===5">
 					<div v-for="(banner,index) in about_joinUs" :key="index">
 						<img v-if="banner.filePath" :src="$store.state.aiuSRC+banner.filePath">
+					</div>
+				</div>
+
+				<div v-show="current===2">
+					<div v-for="(item,index) in privacy" :key="index" >
+						<div v-html="item.content"></div>
 					</div>
 				</div>
 			</div>
@@ -50,10 +53,11 @@
 			return {
 				current:1,
 				about_main:[],
-				about_development:[],
+				privacy:[],
 				about_contact:[],
 				about_cooperation:[],
 				about_joinUs:[],
+				content:''
 			}
 		},
 		head () {
@@ -82,10 +86,14 @@
 				);
 				this.about_main = banner1.data.data.about_main.pictures
 
-				let banner2 = await axios.post(`${this.$store.state.aiuAPI}/rest/api/display/v1/find-by-keys`,
-					['about_development']
-				);
-				this.about_development = banner2.data.data.about_development.pictures
+				let banner2 = await axios.post(`${this.$store.state.aiuAPI}/rest/api/product-support/v1/query/list`,
+				{
+					"request" : {
+						"supportName" : "隐私政策",
+					}
+				});
+				console.log('banner2',banner2)
+				this.privacy = banner2.data.data.list
 
 				let banner3 = await axios.post(`${this.$store.state.aiuAPI}/rest/api/display/v1/find-by-keys`,
 					['about_contact']
@@ -104,6 +112,10 @@
 			}
 		},
 		mounted(){
+			if(this.$route.query&&this.$route.query.tab){
+				this.current = Number(this.$route.query.tab)
+			}
+			
 			this.init()
 		}
 	}

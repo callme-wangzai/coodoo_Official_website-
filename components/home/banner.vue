@@ -8,12 +8,6 @@
 					<img @click="toShop(index)" v-if="banner.filePath" :src="$store.state.aiuSRC+banner.filePath">
 				</div>
 			</div>
-			<!-- 无传参，用本地 -->
-			<div v-else class="swiper-wrapper">
-				<div class="swiper-slide" v-for="(banner,index) in swiperData" :key="index">
-					<img :src="banner.imgUrl">
-				</div>
-			</div>
 			<div class="swiper-pagination"></div>
 			<!-- <div class="swiper-button-prev left-button"> -->
 				<div class="swiper-button-prev swiper-button-white"></div>
@@ -27,15 +21,9 @@
 	<div id="index-banner2" class="index-banner" v-if="bannerType==='2'">
 		<div v-swiper:mySwiper="swiperOption">
 			<!-- 有传参进来 -->
-			<div v-if="banner.length>0" class="swiper-wrapper">
-				<div class="swiper-slide" v-for="(banner,index) in banner" :key="index">
+			<div v-if="banner.pictures.length>0" class="swiper-wrapper">
+				<div class="swiper-slide" v-for="(banner,index) in banner.pictures" :key="index">
 					<img v-if="banner.filePath" :src="$store.state.aiuSRC+banner.filePath">
-				</div>
-			</div>
-			<!-- 无传参，用本地 -->
-			<div v-else class="swiper-wrapper">
-				<div class="swiper-slide" v-for="(banner,index) in swiperData" :key="index">
-					<img  :src="banner.imgUrl">
 				</div>
 			</div>
 			<div class="swiper-pagination"></div>

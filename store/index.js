@@ -5,8 +5,8 @@ import axios from 'axios'
 Vue.use(Vuex)
 
 const state = {
-	// aiuAPI:'http://manager-api.aiyoukit.com',
-	// aiuSRC:'http://manager-file.aiyoukit.com',
+	// aiuAPI:'http://coodoo-api.aiyoukit.com',
+	// aiuSRC:'http://coodoo-file.aiyoukit.com',
 	aiuAPI:'http://47.106.86.150:8092',
 	aiuSRC:'http://47.106.86.150:8083',
 	headProdNav: {},
@@ -28,6 +28,9 @@ const mutations = {
 		},
 		setSubject(state,bool){
 			state.subject = bool
+		},
+		setSupportList(state,data){
+			state.supportList = data
 		}	
 };
 
@@ -60,6 +63,13 @@ const actions = {
 				
 			})
 			commit('setSubject',subject.data.data);
+
+			let support = await axios.post(`${state.aiuAPI}/rest/api/product-support/v1/query/list`,{
+				request:{
+					sortIndex:"0"
+				}
+			})
+			commit('setSupportList',support.data.data.list);
 
 
 	}
