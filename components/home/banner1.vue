@@ -245,4 +245,10 @@
 	.xbanner .swiper-container{
 		padding-bottom:32px;
 	}
+	@media screen and (max-width:999px) {
+		.swiper-pagination-bullet{
+			width:12px;
+			height:12px;
+		}
+	}
 </style>

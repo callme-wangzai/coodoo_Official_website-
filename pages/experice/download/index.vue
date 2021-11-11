@@ -1,5 +1,9 @@
 <template>
 	<section class="container">
+		<el-breadcrumb separator="/">
+			<el-breadcrumb-item style="font-weight:900;" >服务与支持</el-breadcrumb-item>
+			<el-breadcrumb-item><a>更多支持</a></el-breadcrumb-item>
+		</el-breadcrumb>
 		<div class="title">扫码立即下载【酷动数码】APP</div>
 		<img src="~/assets/images/index/appStore.png" alt="">
 	</section>
@@ -54,5 +58,20 @@ body{
 img{
 	border:none;
 	margin-bottom: 20px;
+}
+.el-breadcrumb{
+	margin: 20px 0;
+}
+@media screen and (max-width:999px) {
+	.container img{
+		width:40vw;
+		margin:2vw auto;
+	}
+	.container{
+		min-height:0;
+	}
+	.el-breadcrumb{
+	margin: 20px auto;
+}
 }
 </style>

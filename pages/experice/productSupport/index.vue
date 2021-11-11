@@ -1,5 +1,9 @@
 <template>
 	<section class="container">
+		<el-breadcrumb separator="/">
+			<el-breadcrumb-item style="font-weight:900;" >服务与支持</el-breadcrumb-item>
+			<el-breadcrumb-item><a href="/">产品支持</a></el-breadcrumb-item>
+		</el-breadcrumb>
         <div class="vhtml" v-html="content"></div>
 			<!-- <img v-for="(item,index) in fileList" :key="index" :src="$store.state.aiuSRC+item.filePath" alt=""> -->
 	</section>
@@ -66,7 +70,7 @@ body{
 	background: #000;
 }
 .container{
-	padding:0 30px;
+	padding:0 50px;
 	background: #f6f6f6;
     /* height:100%; */
     min-height:calc(100vh - 27vw)
@@ -80,5 +84,8 @@ img{
 }
 .vhtml{
 	min-height: 100px;
+}
+.el-breadcrumb{
+	margin: 20px 0;
 }
 </style>

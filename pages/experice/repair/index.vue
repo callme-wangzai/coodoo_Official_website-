@@ -1,5 +1,9 @@
 <template>
 	<section class="container">
+		<el-breadcrumb separator="/">
+			<el-breadcrumb-item style="font-weight:900;" >服务与支持</el-breadcrumb-item>
+			<el-breadcrumb-item><a>维修支持</a></el-breadcrumb-item>
+		</el-breadcrumb>
 		<img @click="linkTo(item)" v-for="(item,index) in fileList" :key="index" :src="$store.state.aiuSRC+item.filePath" alt="">
 	</section>
 </template>
@@ -71,5 +75,8 @@ img{
 	cursor: pointer;
 	border:none;
 	/* margin-bottom: 20px; */
+}
+.el-breadcrumb{
+	margin: 20px 0;
 }
 </style>

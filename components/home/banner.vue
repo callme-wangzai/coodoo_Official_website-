@@ -117,21 +117,12 @@
 	}
 	#index-banner1 .swiper-slide>img{
 		width: 100%;
-    	/* height: 768px; */
-		height: 56.25vw
+		height: 56.25vw;
 	}
 	#index-banner2 .swiper-slide>img{
 		width: 100%;
-    	/* height: 768px; */
-		height: 30rem;
+		height: 41.67vw;
 	}
-	#index-banner3 .swiper-slide>img{
-		width: 100%;
-    	/* height: 768px; */
-		height: 30rem;
-	}
-	
-	
 </style>
 <style>
 	.index-banner .swiper-pagination-bullet{
@@ -148,24 +139,50 @@
 		width:14px;
 		height:14px;
 	}
+	@media screen and (max-width:999px) {
+		#index-banner1 .swiper-pagination-bullet{
+			width:6px;
+			height:6px;
+		}
+		.index-banner .swiper-pagination-bullet{
+			width:10px;
+			height:10px;
+		}
+		.index-banner .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet{
+			margin: 0 4px;
+		}
+		.swiper-button-next,.swiper-button-prev{
+			display: none;
+		}
+	}
 	.left-button{
 		background: rgba(0,0,0,0.1);
-		padding: 15px 10px;
-		margin-top:-30px;border-radius: 0px 15px 15px 0;
+		padding: 10px 5px;
+		margin-top:-30px;border-radius: 0px 10px 10px 0;
 	}
 	.left-button:hover{
 		background: rgba(0,0,0,0.2);
 	}
 	.right-button{
 		background: rgba(0,0,0,0.1);
-		padding: 15px 10px;
+		padding: 10px 5px;
 		margin-top:-30px;
-		border-radius:15px 0px 0px 15px;
+		border-radius:10px 0px 0px 10px;
 	}
 	.right-button:hover{
 		background: rgba(0,0,0,0.2);
 	}
 	#index-banner1  .swiper-pagination-bullet{
 		border:solid 2px orange;
+	}
+	#index-banner1 .swiper-pagination-bullet{
+		width:10px;
+		height:10px;
+	}
+	.swiper-button-next, .swiper-container-rtl .swiper-button-prev{
+		right:5px;
+	}
+	.swiper-button-prev, .swiper-container-rtl .swiper-button-next{
+		left:5px;
 	}
 </style>

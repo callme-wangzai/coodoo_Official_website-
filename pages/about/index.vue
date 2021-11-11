@@ -81,6 +81,9 @@
 				this.current = num
 			},
 			async init(){
+				if(this.$route.query&&this.$route.query.tab){
+					this.current = Number(this.$route.query.tab)
+				}
 				let banner1 = await axios.post(`${this.$store.state.aiuAPI}/rest/api/display/v1/find-by-keys`,
 				['about_main']
 				);
@@ -111,12 +114,17 @@
 				this.about_joinUs = banner5.data.data.about_joinUs.pictures
 			}
 		},
-		mounted(){
-			if(this.$route.query&&this.$route.query.tab){
-				this.current = Number(this.$route.query.tab)
-			}
-			
+		mounted(){	
 			this.init()
+		},
+		watch: {
+			$route: {
+				handler: function(val, oldVal){
+					this.init()
+				},
+				// 深度观察监听
+				deep: true
+			}
 		}
 	}
 </script>
@@ -170,5 +178,42 @@ img{
 }
 .content>div>div>img{
 	/* width: 90%; */
+}
+@media screen and (max-width:799px) {
+	.about-us{
+		padding: 2vw 1vw;
+	}
+	.title{
+		width: 18vw;
+	}
+	.content{
+		width: 80vw;
+	}
+	.title .li{
+		font-size:14px;
+		padding-left:2px;
+	}
+}
+@media screen and (min-width:800px) and (max-width:999px) {
+	.about-us{
+		padding: 2vw 2vw;
+	}
+	.title{
+		width: 16vw;
+	}
+	.content{
+		width: 80vw;
+	}
+}
+@media screen and (min-width:1000px) and (max-width:1199px) {
+	.about-us{
+		padding: 2vw 5vw;
+	}
+	.title{
+		width: 15vw;
+	}
+	.content{
+		width: 75vw;
+	}
 }
 </style>

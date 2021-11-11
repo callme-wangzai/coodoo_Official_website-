@@ -5,10 +5,12 @@ import axios from 'axios'
 Vue.use(Vuex)
 
 const state = {
-	// aiuAPI:'http://coodoo-api.aiyoukit.com',
-	// aiuSRC:'http://coodoo-file.aiyoukit.com',
-	aiuAPI:'http://47.106.86.150:8092',
-	aiuSRC:'http://47.106.86.150:8083',
+	// aiuAPI:'http://www.coodoo.com.cn',//生产
+	// aiuSRC:'http://coodoo-file.aiyoukit.com',//生产
+	aiuAPI:'http://coodoo-api.aiyoukit.com',//预生产
+	aiuSRC:'http://coodoo-file.aiyoukit.com',//预生产
+	// aiuAPI:'http://47.106.86.150:8092',//测试
+	// aiuSRC:'http://47.106.86.150:8083',//测试
 	headProdNav: {},
 	headNewsNav: {},
 	headJobNav: {},

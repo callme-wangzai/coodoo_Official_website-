@@ -7,7 +7,7 @@
 		<div class="shopList">
 			<div class="shop-title">门店列表</div>
 			<el-form ref="form" label-width="80px">
-				<el-row>
+				<el-row class="big">
 					<el-col :span="6">
 						<el-form-item label="关键字:">
 							<el-input v-model="form.name" clearable placeholder="请输入关键字"></el-input>
@@ -31,6 +31,30 @@
 						</el-form-item>
 					</el-col>
 				</el-row>
+				<el-row class="small">
+					<el-col :span="24">
+						<el-form-item label="关键字:">
+							<el-input v-model="form.name" clearable placeholder="请输入关键字"></el-input>
+						</el-form-item>
+					</el-col>
+					<el-col :span="24">
+						<el-form-item label="门店分类:">
+						<el-select id='shopType' filterable clearable v-model="form.shopTypeId" placeholder="请选择" @change="shopChange">
+							<el-option
+								v-for="(item,index) in shopType"
+								:key="index"
+								:label="item.showName"
+								:value="item.id">
+							</el-option>
+						</el-select>
+						</el-form-item>
+					</el-col>
+					<el-col :span="24">
+						<el-form-item label-width="40px" align="center" label="">
+							<el-button style="margin-left:-30px;" type="primary" @click="search">搜索</el-button>
+						</el-form-item>
+					</el-col>
+				</el-row>
 			</el-form>   
 			<div class="list">
 				<el-table
@@ -51,9 +75,10 @@
 					width="180">
 				</el-table-column> -->
 				<el-table-column
+				align="right"
 					prop="picture.filePath"
-					width="180"
-					label="地址">
+					label="地址"
+					>
 					<template slot-scope="scope">
 						<img class="shop-img" v-if="scope.row.picture" :src="$store.state.aiuSRC + scope.row.picture.filePath" alt="">
 					</template>
@@ -89,7 +114,7 @@
         <div class="input-card">
 			<div class="shop-title">附近门店</div>
           <el-form ref="form" label-width="60px">
-            <el-row>
+            <el-row class="big">
               <el-col :span="5">
                 <el-form-item label="省市区">
                   <el-select id='province' filterable v-model="province" placeholder="请选择" @change="provinceChange">
@@ -127,6 +152,57 @@
                 </el-form-item>
               </el-col>
               <el-col :span="5">
+                <el-form-item label="街道">
+                  <el-select id='street' filterable v-model="street" placeholder="请选择" @change="setCenter">
+                    <el-option
+                      v-for="(street,index) in streetList"
+                      :key="index"
+                      :label="street"
+                      :value="street"
+                      >
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+            </el-row>
+			<el-row class="small">
+              <el-col :span="24">
+                <el-form-item label="省市区">
+                  <el-select id='province' filterable v-model="province" placeholder="请选择" @change="provinceChange">
+                    <el-option
+                      v-for="(province,index) in provinceList"
+                      :key="index"
+                      :label="province.name"
+                      :value="province.adcode">
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="24">
+                <el-form-item label="地级市">
+                  <el-select id='city' filterable v-model="city" placeholder="请选择" @change="cityChange">
+                    <el-option
+                      v-for="(city,index) in cityList"
+                      :key="index"
+                      :label="city.name"
+                      :value="city.adcode">
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="24">
+                <el-form-item label="区县">
+                  <el-select id='district' filterable v-model="district" placeholder="请选择" @change="districtChange">
+                    <el-option
+                      v-for="(district,index) in districtList"
+                      :key="index"
+                      :label="district.name"
+                      :value="district.adcode">
+                    </el-option>
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="24">
                 <el-form-item label="街道">
                   <el-select id='street' filterable v-model="street" placeholder="请选择" @change="setCenter">
                     <el-option
@@ -198,8 +274,8 @@
       return {
         title:'coodoo',
         meta: [
-          {name:'keywords',hid: 'keywords',content:`云麦,YUNMAI,好轻,云麦筋膜枪,云麦智能手表,云麦智能跳绳,云麦体脂秤,云麦好轻,云麦好轻Pro,云麦好轻Color2,云麦好轻mini2,云麦腕力球,云麦弹力圈,云麦瑜伽垫,体脂秤,筋膜枪,瑜伽,腕力球,体脂称`},
-          {name:'description',hid:'description',content:`云麦科技旗下所有产品，包括云麦筋膜枪系列YUNMAI按摩筋膜枪PB、YUNMAI按摩筋膜枪SC，云麦体脂秤系列云麦好轻2、云麦好轻Pro、云麦好轻Color2、云麦好轻mini2，智能穿戴系列YUNMAI智能训练手表、YUNMAI智能跳绳，瑜伽系列瑜伽垫、瑜伽球、瑜伽砖、瑜伽柱、泡沫轴、瑜伽袜，运动服饰系列运动内衣、运动紧身裤等，运动装备系列运动跳绳、运动臂包、运动腰包、运动护膝、运动护肘、运动护腕、健力环、弹力带、阻力圈、握力圈等，同时提供云麦客户服务及售后支持`}
+          {name:'keywords',hid: 'keywords',content:`Apple授权优质经销商，酷动数码，深圳酷动数码，苹果零售店，苹果手机，苹果笔记本，正品苹果手机，苹果13，iPhone13，iPhone12，iPhoneX，iMac，MacBook Pro，AirPods WATCH，IPhone 上市，iPad，苹果`},
+          {name:'description',hid:'description',content:`酷动数码为知名的新潮3C产品综合连锁零售商，本着“拒绝平庸，开始酷动生活”的品牌精神，致力于新潮3C产品的连锁零售,代理分销以及企业一对一解决方案提供。`},
         ]
       }
     },
@@ -466,6 +542,7 @@
     width: 20rem;
     height: 20rem;
     border: none;
+	float: right;
   }
   .shop-main{
     background: #fff;
@@ -505,6 +582,63 @@
   .el-pagination{
 	  /* text-align: right; */
   }
+  .big{
+	  display: block;
+  }
+  .small{
+	  display: none;
+  }
+	@media screen and (max-width:799px) {
+		.shopList{
+			margin:0.8rem 0rem
+		}
+		.input-card{
+			margin:0 0rem
+		}
+		.map{
+			height: 20rem;
+			margin:0.8rem 0rem;
+			margin-bottom:20rem;
+		}
+		#container{
+			height: 20rem;
+		}
+		.big{
+			display:none ;
+		}
+		.small{
+			display: block;
+		}
+		#panel{
+			position: static;
+			width: 100%;
+			height: 20rem!important;
+			max-height: 100%;
+		}
+	}
+	@media screen and (min-width:800px) and (max-width:999px) {
+		.shopList{
+			margin:0.8rem 2rem
+		}
+		.input-card{
+			margin:0 2rem
+		}
+		.map{
+			height: 20rem;
+			margin:0.8rem 2rem
+		}
+		#container{
+			height: 20rem;
+		}
+	}
+	@media screen and (min-width:1000px) and (max-width:1199px) {
+		.map{
+			height: 30rem;
+		}
+		#container{
+			height: 30rem;
+		}
+	}
 </style>
 <style>
 .brand .el-form-item{
@@ -534,5 +668,14 @@
 }
 .el-table__empty-block{
 	background: #f6f6f6;
+}
+.el-table{
+	background: #f6f6f6;
+}
+.small .el-input.el-input--suffix{
+	width: 90%!important;
+}
+.small .el-select{
+	width: 100%!important;
 }
 </style>

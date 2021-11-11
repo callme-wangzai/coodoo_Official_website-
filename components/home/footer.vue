@@ -14,14 +14,14 @@
 				</div>
 				<div class="code">
 					<div class="gongzhonghao">
-						<img src="~/assets/images/index/gongzhonghao.jpeg" alt="">
+						<img class="img" src="~/assets/images/index/gongzhonghao.jpeg" alt="">
 					</div>
 					<div class="des">
 						<div class="title">Coodoo官方公众号</div>
 						<div>了解Apple产品及周边配件的绝佳场所</div>
 					</div>
 					<div class="xiaochengxu">
-						<img src="~/assets/images/index/xiaochengxu.png" alt="">
+						<img class="img" src="~/assets/images/index/xiaochengxu.png" alt="">
 					</div>
 					<div class="des">
 						<div class="title">Apple授权专营店</div>
@@ -30,7 +30,7 @@
 				</div>
 				<div class="footer-bottom">
 					<p>Copyright © 2011 www.COODOO.com.cn All Rights Reserved.Power by COODOO Digital</p>
-					<p>版权所有 © Coodoo 保留所有权利 备案/许可证编号为: <span class="link" @click="linkToWeb">粤ICP备12064129号-2</span></p>
+					<p>版权所有 © Coodoo 保留所有权利 备案/许可证编号为: <span class="link" @click="linkToWeb">粤ICP备12064129号</span></p>
 				</div>
 			</div>
 		</div>
@@ -44,7 +44,7 @@
 	}
 
 	.index-footer-box {
-	    width: 1200px;
+	    /* width: 1200px; */
 	    height: auto;
 	    margin: 0 auto;
 	    /* padding-bottom: 30px; */
@@ -213,8 +213,8 @@
 	    margin-left: 23px;
 	}
 	.code{
-		margin-top:2vw;
-		margin-bottom: 2vw;
+		padding-top:2vw;
+		padding-bottom: 2vw;
 		display: flex;
 		justify-content: center;
 		
@@ -292,6 +292,81 @@
 	}
 	.link:hover{
 		text-decoration:underline!important;
+	}
+	@media screen and (max-width:799px) {
+		.des .title{
+			font-size: 14px;
+			margin-bottom:3px;
+		}
+		.des{
+			font-size: 10px;
+			
+		}
+		.code{
+			/* margin-top:2vw;
+			margin-bottom: 2vw; */
+			display: block;
+			text-align: center;
+			/* justify-content: center; */
+			
+		}
+		.gongzhonghao{
+			width:10rem;
+			height: 10rem;
+			border:solid 3px #000;
+			border-radius: 1vw;
+			overflow: hidden;
+			margin: 0 auto;
+			margin-top: 1rem;
+		}
+		.gongzhonghao .img{
+			width:10rem;
+			height: 10rem;
+			
+		}
+		.xiaochengxu{
+			width:10rem;
+			height: 10rem;
+			margin-left: 3vw;
+			border:solid 3px #000;
+			border-radius: 1vw;
+			margin: 0 auto;
+			overflow: hidden;
+			margin-top: 1rem;
+		}
+		.xiaochengxu .img{
+			width:10rem;
+			height: 10rem;
+		}
+		.footer-bottom p{
+			line-height: 20px;
+			margin-top:0.5rem;
+		}
+	}
+	@media screen and (min-width:800px) and (max-width:999px) {
+		.gongzhonghao{
+			width:12vw;
+			height: 12vw;
+		}
+		.gongzhonghao>img{
+			width:12vw;
+			height: 12vw;
+		}
+		.xiaochengxu{
+			width:12vw;
+			height: 12vw;
+		}
+		.xiaochengxu>img{
+			width:12vw;
+			height: 12vw;
+		}
+		.des .title{
+			font-size: 14px;
+			margin-bottom:3px;
+		}
+		.des{
+			font-size: 10px;
+		}
 	}
 </style>
 

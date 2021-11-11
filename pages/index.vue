@@ -4,7 +4,7 @@
       <VBanner :banner="banner" :bannerType="'1'" ></VBanner>
 
       <!-- 广告位 -->
-      <img @click="linkTo('https://shop40567215.youzan.com/v2/showcase/homepage?alias=PqERHgH7qr')" style="width:100%;cursor:pointer;" src="~/assets/images/index/banner.jpg" alt="">
+      <!-- <img @click="linkTo('https://shop40567215.youzan.com/v2/showcase/homepage?alias=PqERHgH7qr')" style="width:100%;cursor:pointer;" src="~/assets/images/index/banner.jpg" alt=""> -->
       
 
       <!-- 产品展示 -->
@@ -99,6 +99,9 @@
 						prevEl: ".product-list .swiper-button-prev"
 					},
           loop : true,
+          autoplay:{
+            delay: 5000
+          },
 					slidesPerView : 'auto',
 					spaceBetween : 30,
           centeredSlides:true
@@ -142,8 +145,8 @@
       return {
         title:'coodoo',
         meta: [
-          {name:'keywords',hid: 'keywords',content:`云麦,YUNMAI,好轻,云麦筋膜枪,云麦智能手表,云麦智能跳绳,云麦体脂秤,云麦好轻,云麦好轻Pro,云麦好轻Color2,云麦好轻mini2,云麦腕力球,云麦弹力圈,云麦瑜伽垫,体脂秤,筋膜枪,瑜伽,腕力球,体脂称`},
-          {name:'description',hid:'description',content:`云麦科技旗下所有产品，包括云麦筋膜枪系列YUNMAI按摩筋膜枪PB、YUNMAI按摩筋膜枪SC，云麦体脂秤系列云麦好轻2、云麦好轻Pro、云麦好轻Color2、云麦好轻mini2，智能穿戴系列YUNMAI智能训练手表、YUNMAI智能跳绳，瑜伽系列瑜伽垫、瑜伽球、瑜伽砖、瑜伽柱、泡沫轴、瑜伽袜，运动服饰系列运动内衣、运动紧身裤等，运动装备系列运动跳绳、运动臂包、运动腰包、运动护膝、运动护肘、运动护腕、健力环、弹力带、阻力圈、握力圈等，同时提供云麦客户服务及售后支持`},
+          {name:'keywords',hid: 'keywords',content:`Apple授权优质经销商，酷动数码，深圳酷动数码，苹果零售店，苹果手机，苹果笔记本，正品苹果手机，苹果13，iPhone13，iPhone12，iPhoneX，iMac，MacBook Pro，AirPods WATCH，IPhone 上市，iPad，苹果`},
+          {name:'description',hid:'description',content:`酷动数码为知名的新潮3C产品综合连锁零售商，本着“拒绝平庸，开始酷动生活”的品牌精神，致力于新潮3C产品的连锁零售,代理分销以及企业一对一解决方案提供。`},
         ]
       }
     },
@@ -380,7 +383,7 @@ display: -webkit-box;
     overflow: hidden;
     cursor: pointer;
   }
-  @media screen and (max-width:767px) {
+  @media screen and (max-width:799px) {
     .product-slide{
       width: 100vw !important;
       height:100vw;
@@ -441,7 +444,7 @@ display: -webkit-box;
       margin: 0.2rem auto
     }
 	}
-  @media screen and (min-width:768px) and (max-width:999px) {
+  @media screen and (min-width:800px) and (max-width:999px) {
     .product-slide{
       width: 100vw !important;
       height:100vw;
